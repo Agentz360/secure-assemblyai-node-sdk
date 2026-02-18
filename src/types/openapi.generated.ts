@@ -1711,6 +1711,16 @@ export type LanguageDetectionOptions = {
 };
 
 /**
+ * Options for controlling the behavior of Keyterms Prompting
+ */
+export type KeytermsPromptOptions = {
+  /**
+   * Strength of keyterm matching to be applied, either 'standard' or 'high'.
+   */
+  keyterms_match_strength?: "high" | "standard" | null;
+};
+
+/**
  * The speech model to use for the transcription.
  */
 export type SpeechModel = "best" | "nano" | "slam-1" | "universal";
@@ -3298,6 +3308,10 @@ export type TranscriptOptionalParams = {
    * The list of key terms used to generate the transcript with the Slam-1 speech model. Can't be used together with `prompt`.
    */
   keyterms_prompt?: string[];
+  /**
+   * Advanced options for controlling the behavior of keyterms_prompt
+   */
+  keyterms_prompt_options?: KeytermsPromptOptions;
   /**
    * The language of your audio file. Possible values are found in {@link https://www.assemblyai.com/docs/concepts/supported-languages | Supported Languages }.
    * The default value is 'en_us'.
